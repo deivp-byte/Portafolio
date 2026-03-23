@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deivid Ruiz Pérez - Developer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -25,14 +25,22 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Deivid Ruiz Pérez</span></h1>
-            <h2>Software Development Student | Multiplatform Specialist</h2>
-            <p>Driven by building efficient, scalable software and blending deep backend logic with intuitive frontend design.</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn primary-btn">View My Work</a>
-                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+        <div class="hero-content" style="display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap-reverse;">
+            
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="highlight">Deivid Ruiz Pérez</span></h1>
+                <h2>Software Development Student | Multiplatform Specialist</h2>
+                <p>Driven by building efficient, scalable software and blending deep backend logic with intuitive frontend design.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary-btn">View My Work</a>
+                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                </div>
             </div>
+
+            <div class="hero-image">
+                <img src="img/fotoCarnet.jpg" alt="Deivid Ruiz Pérez - Profile Picture" class="profile-pic" width="250" height="250" style="border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            </div>
+
         </div>
     </section>
 
@@ -94,7 +102,7 @@
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/deivp-byte/Burger_Bytes.git" target="_blank"><i class="fab fa-github"></i></a>
-                        <img src="img/Captura de pantalla 2026-03-18 165600.png" width="200" height="200" alt="Project Image Preview" class="project-image" >
+                        <img src="img/Captura de pantalla 2026-03-18 165600.png" width="250" height="200" alt="Project Image Preview" class="project-image" >
                     </div>
                 </div>
             </div>
@@ -124,6 +132,6 @@
         <p>Designed & Built by Deivid Ruiz Pérez</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
