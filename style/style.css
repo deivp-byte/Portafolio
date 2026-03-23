@@ -1,0 +1,292 @@
+/* --- CSS Variables for easy Figma adaptation --- */
+:root {
+    --bg-color: #0f172a;
+    --text-color: #cbd5e1;
+    --heading-color: #f8fafc;
+    --primary-color: #38bdf8;
+    --card-bg: #1e293b;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transition: all 0.3s ease-in-out;
+}
+
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    color: var(--heading-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+/* --- Typography Utilities --- */
+.highlight {
+    color: var(--primary-color);
+}
+
+.section-title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* --- Navigation (Mobile First) --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 1rem 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--heading-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--heading-color);
+}
+
+/* --- Sections Basic Setup --- */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid var(--primary-color);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+.primary-btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+/* --- Hero Section --- */
+.hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 0.5rem;
+}
+
+.hero-content h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* --- About Section --- */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.skill-tag {
+    background: var(--card-bg);
+    color: var(--primary-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* --- Projects Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-info h3 {
+    margin-bottom: 1rem;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+.project-links a {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.project-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Contact Section --- */
+.contact {
+    text-align: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.contact p {
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-bg);
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--card-bg);
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
