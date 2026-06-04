@@ -1,152 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deivid Ruiz Pérez - Developer Portfolio</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deivid Ruiz Pérez — Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Deivid<span>Ruiz</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+<!-- Progress bar -->
+<div class="progress-bar" id="progressBar"></div>
 
-    <section id="home" class="hero">
-        <div class="hero-content" style="display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap-reverse;">
-            
-            <div class="hero-text">
-                <h1>Hi, I'm <span class="highlight">Deivid Ruiz Pérez</span></h1>
-                <h2>Software Development Student | Multiplatform Specialist</h2>
-                <p>Driven by building efficient, scalable software and blending deep backend logic with intuitive frontend design.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary-btn">View My Work</a>
-                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
-                </div>
-            </div>
+<!-- Custom cursor (desktop only) -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-            <div class="hero-image">
-                <img src="img/fotoCarnet.jpg" alt="Deivid Ruiz Pérez - Profile Picture" class="profile-pic" width="250" height="250" style="border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            </div>
+<!-- Mobile overlay menu -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</nav>
 
+<!-- HEADER -->
+<header id="header">
+  <nav class="navbar">
+    <div class="logo">Deivid<span>Ruiz</span><sup>dev</sup></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-num="01." data-section="home">Home</a></li>
+      <li><a href="#about" data-num="02." data-section="about">About</a></li>
+      <li><a href="#projects" data-num="03." data-section="projects">Projects</a></li>
+      <li><a href="#contact" data-num="04." data-section="contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home">
+  <div class="grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Available for internship &amp; junior roles</div>
+      <h1 class="hero-name">
+        Hi, I'm<br>
+        <span class="acc" id="typedName"></span><span class="typed-cursor">_</span>
+      </h1>
+      <p class="hero-role">Multiplatform App Developer · Backend &amp; Frontend</p>
+      <p class="hero-desc">Dedicated to building efficient, scalable software — blending backend logic with intuitive frontend design. Currently studying DAM at UVic-UCC.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View My Work</a>
+        <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-glow"></div>
+      <div class="hero-img-ring"></div>
+      <img src="img/fotoCarnet.jpg" alt="Deivid Ruiz Pérez" width="220" height="220">
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <span>scroll</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-text reveal">
+      <p class="sec-label">About me</p>
+      <h2 class="sec-title">A bit about myself</h2>
+      <p>I'm <strong style="color:var(--head)">Deivid</strong>, a Multiplatform App Development student based in Vic, Barcelona. I build things for the web and beyond — from MVC architectures and REST APIs to responsive interfaces that actually feel good to use.</p>
+      <p>I care about clean code, efficient systems, and shipping things that work. When I'm not coding, you'll find me coaching basketball or studying how great products are built.</p>
+      <p>Looking for a <a href="#contact">junior position or FCT internship</a> where I can contribute from day one.</p>
+
+      <div class="skills-grid">
+        <span class="skill-pill" data-tip="Backend · OOP">Java</span>
+        <span class="skill-pill" data-tip="Web server scripting">PHP</span>
+        <span class="skill-pill" data-tip="Scripting & automation">Python</span>
+        <span class="skill-pill" data-tip="Server-side JS">Node.js</span>
+        <span class="skill-pill" data-tip="Progressive framework">Vue.js</span>
+        <span class="skill-pill" data-tip="Markup">HTML5</span>
+        <span class="skill-pill" data-tip="Styling">CSS3</span>
+        <span class="skill-pill" data-tip="ES6+">JavaScript</span>
+        <span class="skill-pill" data-tip="Relational DB">MySQL</span>
+        <span class="skill-pill" data-tip="Data interchange">JSON</span>
+        <span class="skill-pill" data-tip="Architecture pattern">MVC</span>
+        <span class="skill-pill" data-tip="Version control">Git / GitHub</span>
+      </div>
+    </div>
+
+    <div class="about-stats reveal">
+      <div class="stat-card">
+        <div class="stat-num" data-count="4">0</div>
+        <div class="stat-label">Projects on GitHub</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="stat-label">Years of active learning</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="6">0</div>
+        <div class="stat-label">Technologies in stack</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(52,211,153,.2)">
+        <div class="stat-num" style="color:var(--green)">Open</div>
+        <div class="stat-label">to new opportunities · Vic, BCN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-wrap">
+    <p class="sec-label reveal">Featured work</p>
+    <h2 class="sec-title reveal">Some Things I've Built</h2>
+    <p class="sec-sub reveal">A selection of projects I've built while learning and experimenting. Each one links to its GitHub repo.</p>
+
+    <div class="project-grid">
+
+      <!-- FEATURED: Burger Bytes -->
+      <div class="featured-card reveal">
+        <div>
+          <div class="featured-badge">Featured project</div>
+          <h3 class="sec-title" style="font-size:1.3rem;margin-bottom:.8rem">Burger Bytes — Fullstack Storefront</h3>
+          <p style="font-size:.9rem;line-height:1.8;margin-bottom:1.4rem">Fully responsive digital storefront for a food establishment. Cross-device compatible across 4 breakpoints, with an interactive menu system and an optimised MySQL backend handling order management and real-time tracking.</p>
+          <div class="tags" style="margin-bottom:1.4rem">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">MySQL</span><span class="tag">Responsive</span>
+          </div>
+          <a href="https://github.com/deivp-byte/Burger_Bytes.git" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.75rem">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
         </div>
-    </section>
+        <div class="featured-img">
+          <img src="img/Captura de pantalla 2026-03-18 165600.png" alt="Burger Bytes preview" width="480" height="200">
+        </div>
+      </div>
 
-    <section id="about" class="about">
-        <div class="section-title">
-            <h2>About Me</h2>
+      <!-- MVC Inventory -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <span class="project-icon"><i class="fas fa-layer-group"></i></span>
+          <div class="project-links-top">
+            <a href="https://github.com/deivp-byte/ModelVistaControlador.git" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+          </div>
         </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Hello! I'm Deivid, a dedicated Multiplatform App Development student based in Vic, Barcelona. I thrive in fast-paced team environments, blending deep backend logic with intuitive, responsive frontend design. With a strong foundation in both object-oriented programming and database management, I enjoy solving complex problems and collaborating on impactful projects.</p>
-                <div class="skills">
-                    <span class="skill-tag">Vue</span>
-                    <span class="skill-tag">PHP</span>
-                    <span class="skill-tag">Python (OOP)</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Git/GitHub</span>
-                </div>
-            </div>
+        <h3>Inventory System — MVC Architecture</h3>
+        <p>Local web application with a clean MVC pattern and Bootstrap UI. Product creation, deletion, and management — deployed via XAMPP with a PHP + MySQL backend.</p>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span><span class="tag">XAMPP</span><span class="tag">MVC</span>
         </div>
-    </section>
+      </div>
 
-    <section id="projects" class="projects">
-        <div class="section-title">
-            <h2>Some Things I've Built</h2>
+      <!-- Library -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <span class="project-icon"><i class="fas fa-book"></i></span>
+          <div class="project-links-top">
+            <a href="https://github.com/deivp-byte/JavaPac1.git" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+          </div>
         </div>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-info">
-                    <h3>ModelVIstaControlador (MVC) web</h3>
-                    <p>Products web inventory where you can create and delete products, I am still working on it.</p>
-                    <div class="tech-stack">
-                        <span>Python</span><span>OOP</span><span>APIs</span><span>Git</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/deivp-byte/ModelVistaControlador.git" target="_blank"><i class="fab fa-github"></i></a>
-                        <img src="img/inventary.png" width="300" height="200" alt="Project Image Preview" class="project-image" >
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-info">
-                    <h3>Library Management System</h3>
-                    <p>Engineered a terminal-based system focused on structured logic. Implemented inventory tracking, loan management, and optimized search algorithms.</p>
-                    <div class="tech-stack">
-                        <span>Java</span><span>Procedural Logic</span><span>Algorithms</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/deivp-byte/JavaPac1.git" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-info">
-                    <h3>Burger Bytes Storefront</h3>
-                    <p>Designed a fully responsive digital storefront for a food establishment with an interactive menu and an optimized backend for order management.</p>
-                    <div class="tech-stack">
-                        <span>HTML/CSS/JS</span><span>MySQL</span><span>Responsive Design</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/deivp-byte/Burger_Bytes.git" target="_blank"><i class="fab fa-github"></i></a>
-                        <img src="img/Captura de pantalla 2026-03-18 165600.png" width="300" height="200" alt="Project Image Preview" class="project-image" >
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-info">
-                    <h3>Back Market Sostenibility</h3>
-                    <p>This is a web page which I created using Vue.js and focused on the files and folder organization to be more accurate in a professional environment</p>
-                    <div class="tech-stack">
-                        <span>Vue/HTML/CSS/JS</span><span></span><span>Responsive Design</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/deivp-byte/BackMarket_Sostenibility.git" target="_blank"><i class="fab fa-github"></i></a>
-                        <img src="img/BackMarket.png" width="300" height="200" alt="Project Image Preview" class="project-image" >
-                    </div>
-                </div>
-            </div>
+        <h3>Library Management System</h3>
+        <p>Terminal-based system built in Java with OOP principles. Features inventory tracking, loan management, and O(log n) search algorithms without external dependencies.</p>
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">OOP</span><span class="tag">Algorithms</span><span class="tag">Data structures</span>
         </div>
-    </section>
+      </div>
 
-    <section id="contact" class="contact">
-        <div class="section-title">
-            <h2>Get In Touch</h2>
+      <!-- BackMarket -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <span class="project-icon"><i class="fab fa-vuejs"></i></span>
+          <div class="project-links-top">
+            <a href="https://github.com/deivp-byte/BackMarket_Sostenibility.git" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+          </div>
         </div>
-        <p>I'm currently based in Vic, Barcelona, and I'm always open to discussing new opportunities, projects, or just chatting about tech.</p>
-        
-        <div style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 2;">
-            <div><i class="fas fa-envelope" style="color: var(--primary-color); margin-right: 10px;"></i> deividperez2006@gmail.com</div>
-            <div><i class="fas fa-map-marker-alt" style="color: var(--primary-color); margin-right: 10px;"></i> Vic, Barcelona</div>
+        <h3>Back Market Sustainability — Vue</h3>
+        <p>Responsive Vue.js page based on a BackMarket section. Focused on component architecture, file/folder organisation, and multilingual toggle functionality.</p>
+        <div class="tags">
+          <span class="tag">Vue.js</span><span class="tag">Tailwind</span><span class="tag">Bootstrap</span><span class="tag">i18n</span>
         </div>
+      </div>
 
-        <a href="mailto:deividperez2006@gmail.com" class="btn primary-btn">Say Hello</a>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="social-links">
-            <a href="https://github.com/deivp-byte" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/deivid-perez-754a28315" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <p>Designed & Built by Deivid Ruiz Pérez</p>
-    </footer>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <p class="sec-label reveal">What's next?</p>
+    <h2 class="sec-title reveal">Get In Touch</h2>
+    <p class="reveal">I'm currently based in Vic, Barcelona, and open to discussing new opportunities, FCT placements, or just chatting about tech. My inbox is always open.</p>
+    <div class="contact-info reveal">
+      <div class="contact-item"><i class="fas fa-envelope"></i> deividperez2006@gmail.com</div>
+      <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Vic, Barcelona</div>
+    </div>
+    <a href="mailto:deividperez2006@gmail.com" class="btn btn-primary reveal"><i class="fas fa-paper-plane"></i> Say Hello</a>
+  </div>
+</section>
 
-    <script src="js/script.js"></script>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">Designed &amp; built by <span>Deivid Ruiz Pérez</span> · 2026</div>
+  <div class="social-links">
+    <a href="https://github.com/deivp-byte" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/deivid-perez-754a28315" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:deividperez2006@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>
