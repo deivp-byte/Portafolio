@@ -1,5 +1,6 @@
 /* ── TOKENS ──────────────────────────────────────────────── */
 :root {
+  color-scheme:dark;
   --bg:        #080c14;
   --bg2:       #0d1424;
   --bg3:       #111827;
@@ -10,10 +11,32 @@
   --accent:    #38bdf8;
   --accent2:   #818cf8;
   --green:     #34d399;
+  --header-bg: rgba(8,12,20,.85);
+  --menu-bg:   rgba(8,12,20,.97);
+  --muted:     rgba(148,163,184,.45);
+  --on-accent: #060c16;
   --mono:      'Space Mono', monospace;
   --sans:      'DM Sans', sans-serif;
   --ease:      cubic-bezier(.4,0,.2,1);
   --r:         8px;
+}
+
+:root[data-theme="light"] {
+  color-scheme:light;
+  --bg:        #f8fafc;
+  --bg2:       #eef3f8;
+  --bg3:       #e2eaf3;
+  --border:    rgba(15,23,42,.1);
+  --border2:   rgba(15,23,42,.2);
+  --text:      #475569;
+  --head:      #0f172a;
+  --accent:    #0369a1;
+  --accent2:   #5b4bb7;
+  --green:     #047857;
+  --header-bg: rgba(248,250,252,.88);
+  --menu-bg:   rgba(248,250,252,.97);
+  --muted:     #64748b;
+  --on-accent: #fff;
 }
 
 /* ── RESET ───────────────────────────────────────────────── */
@@ -72,7 +95,7 @@ header{
   transition:background .4s,backdrop-filter .4s;
 }
 header.scrolled{
-  background:rgba(8,12,20,.85);
+  background:var(--header-bg);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
@@ -119,6 +142,21 @@ header.scrolled{
   display:none;font-size:1.2rem;
   cursor:pointer;color:var(--head);
   background:none;border:none;
+}
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:2.4rem;height:2.4rem;
+  border:1px solid var(--border2);border-radius:50%;
+  background:var(--bg2);color:var(--accent);
+  font-size:.95rem;cursor:pointer;
+  transition:all .2s var(--ease);
+}
+.theme-toggle:hover{
+  background:var(--accent);color:var(--on-accent);
+  transform:translateY(-2px);
+}
+.theme-toggle:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;
 }
 
 /* ── HERO ────────────────────────────────────────────────── */
@@ -191,7 +229,7 @@ h1.hero-name .acc{color:var(--accent)}
 .btn:hover::after{opacity:1}
 .btn-primary{
   background:var(--accent);
-  color:#060c16;
+  color:var(--on-accent);
   border:1.5px solid var(--accent);
   font-weight:700;
 }
@@ -249,7 +287,7 @@ h1.hero-name .acc{color:var(--accent)}
   position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:.4rem;
   font-family:var(--mono);font-size:.65rem;
-  color:rgba(148,163,184,.4);letter-spacing:.1em;
+  color:var(--muted);letter-spacing:.1em;
   animation:float 2.5s ease-in-out infinite;
 }
 @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
@@ -493,7 +531,7 @@ footer{
 }
 .footer-copy{
   font-family:var(--mono);
-  font-size:.75rem;color:rgba(148,163,184,.4);
+  font-size:.75rem;color:var(--muted);
 }
 .footer-copy span{color:var(--accent)}
 .social-links{display:flex;gap:1.2rem}
@@ -516,7 +554,7 @@ footer{
 .mobile-menu{
   display:none;
   position:fixed;inset:0;
-  background:rgba(8,12,20,.97);
+  background:var(--menu-bg);
   backdrop-filter:blur(20px);
   z-index:99;
   flex-direction:column;

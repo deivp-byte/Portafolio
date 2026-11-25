@@ -38,6 +38,9 @@
       <li><a href="#projects" data-num="03." data-section="projects">Projects</a></li>
       <li><a href="#contact" data-num="04." data-section="contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="false">
+      <i class="fas fa-sun" id="themeToggleIcon" aria-hidden="true"></i>
+    </button>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <i class="fas fa-bars"></i>
     </button>
@@ -101,7 +104,7 @@
 
     <div class="about-stats reveal">
       <div class="stat-card">
-        <div class="stat-num" data-count="4">0</div>
+        <div class="stat-num" data-count="6">0</div>
         <div class="stat-label">Projects on GitHub</div>
       </div>
       <div class="stat-card">
@@ -193,6 +196,32 @@
       </div>
       <div class="project-card reveal">
         <div class="project-top">
+          <span class="project-icon"><i class="fas fa-spider"></i></span>
+          <div class="project-links-top">
+            <a href="https://github.com/deivp-byte/capri.git" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <h3>Capri — Spider-Man Desktop Agent</h3>
+        <p>Transparent desktop companion built with PySide6. It chats in Spanish using a local Ollama model, remembers conversations, and can open apps or manage windows without an external API key.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">Ollama</span><span class="tag">Local AI</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-top">
+          <span class="project-icon"><i class="fas fa-server"></i></span>
+          <div class="project-links-top">
+            <a href="https://github.com/DeividPerez1/PixelHub.git" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <h3>PixelHub — Async TCP CRUD</h3>
+        <p>Python back-office application for managing users, roles, profiles, posts, categories, and tags. A concurrent asynchronous TCP server connects a command-line client to PostgreSQL or SQLite databases.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">AsyncIO</span><span class="tag">TCP</span><span class="tag">SQLAlchemy</span><span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-top">
           <span class="project-icon"><i class="fab fa-react"></i></span>
           <div class="project-links-top">
             <a href="https://collarfric.com/" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
@@ -207,6 +236,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- CONTACT -->
 <section id="contact">

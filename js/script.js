@@ -5,6 +5,27 @@ window.addEventListener('scroll', () => {
   bar.style.width = Math.min(pct, 100) + '%';
 });
 
+// ── THEME TOGGLE ──────────────────────────────────────────────
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleIcon = document.getElementById('themeToggleIcon');
+const savedTheme = localStorage.getItem('portfolio-theme');
+
+function setTheme(theme){
+  const isLight = theme === 'light';
+  document.documentElement.dataset.theme = isLight ? 'light' : 'dark';
+  themeToggle.setAttribute('aria-label', `Switch to ${isLight ? 'dark' : 'light'} mode`);
+  themeToggle.setAttribute('title', `Switch to ${isLight ? 'dark' : 'light'} mode`);
+  themeToggle.setAttribute('aria-pressed', String(isLight));
+  themeToggleIcon.className = `fas ${isLight ? 'fa-moon' : 'fa-sun'}`;
+}
+
+setTheme(savedTheme === 'light' ? 'light' : 'dark');
+themeToggle.addEventListener('click', () => {
+  const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  localStorage.setItem('portfolio-theme', nextTheme);
+  setTheme(nextTheme);
+});
+
 // ── HEADER SCROLL ─────────────────────────────────────────────
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
